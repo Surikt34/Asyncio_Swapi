@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:14.3-alpine3.15
+    restart: always
+    environment:
+      POSTGRES_USER: swapi
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: swapi
+    ports:
+      - "5431:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
